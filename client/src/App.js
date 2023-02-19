@@ -27,6 +27,7 @@ export default function App() {
       from: "Me",
     };
     setMessages([newMessage, ...messages]);
+    console.log(messages);
     setMessage("");
     socket.emit("message", newMessage.body);
   };
@@ -45,7 +46,7 @@ export default function App() {
           autoFocus
         />
 
-        <ul className="h-80 overflow-y-auto">
+        <ul className="flex flex-col-reverse justify-end h-80 overflow-y-auto ul-mess">
           {messages.map((message, index) => (
             <li
               key={index}
