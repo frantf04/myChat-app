@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "version": "18.14.1"
+  },
   "scripts": {
     "dev": "nodemon server/index.js --ignore client",
     "build": "npm run --prefix client build",
