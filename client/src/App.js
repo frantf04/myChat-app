@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-import {Input} from "@mui/material";
 import Msg from "./components/Msg";
 import "./App.css";
 // const socket = io("http://localhost:3001");
@@ -54,12 +53,11 @@ export default function App() {
           ))}
         </div>
         <form onSubmit={handleSubmit} className="bg-zinc-900 p-10">
-          <Input
+          <input
             name="message"
             type="text"
             placeholder="Write your message..."
             onChange={(e) => setMessage(e.target.value)}
-            className="border-2 border-zinc-500 p-2 w-full text-black"
             value={message}
             autoFocus
           />
