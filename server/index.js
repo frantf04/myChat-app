@@ -3,7 +3,7 @@ import http from "http";
 import morgan from "morgan";
 import { Server as SocketServer } from "socket.io";
 import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "url"
 
 import { PORT } from "./config.js";
 import cors from "cors";
