@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-import { Avatar, Input } from "@mui/material";
+import {Input} from "@mui/material";
 import Msg from "./components/Msg";
 import "./App.css";
 // const socket = io("http://localhost:3001");
