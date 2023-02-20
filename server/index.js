@@ -17,6 +17,7 @@ const io = new SocketServer(server, {
   // },
 });
 const __dirname = dirname(fileURLToPath(import.meta.url));
+let coutUser = 0;
 
 // Middlewares
 app.use(cors());
@@ -27,13 +28,24 @@ app.use(express.static(join(__dirname, "../client/build")));
 
 io.on("connection", (socket) => {
   console.log(socket.id);
+  coutUser += 1;
+  console.log(coutUser);
+  
   socket.on("message", (body) => {
     socket.broadcast.emit("message", {
       body,
-      from: socket.id.slice(8),
+      from: socket.id.slice(5),
     });
+    socket.broadcast.emit('active', coutUser)
   });
+
+  socket.on("disconnect", () => {
+    console.log("user desconectado")
+    coutUser -= 1;
+    console.log(coutUser);
+  })
 });
+
 
 server.listen(PORT);
 console.log(`server on port ${PORT}`);
